@@ -224,7 +224,7 @@ void lzss_decompress(uint8_t *in_data, uint8_t *out_data) {
 }
 
 cmp_t *image_load_compressed(char *name) {
-	printf("load cmp %s\n", name);
+//printf("load cmp %s\n", name);
 	uint32_t compressed_size;
 	uint8_t *compressed_bytes = file_load(name, &compressed_size);
 
@@ -258,7 +258,7 @@ cmp_t *image_load_compressed(char *name) {
 }
 
 uint16_t image_get_texture(char *name) {
-	printf("load: %s\n", name);
+//printf("load: %s\n", name);
 	uint32_t size;
 	uint8_t *bytes = file_load(name, &size);
 	image_t *image = image_load_from_bytes(bytes, false);
@@ -270,7 +270,7 @@ uint16_t image_get_texture(char *name) {
 }
 
 uint16_t image_get_texture_semi_trans(char *name) {
-	printf("load: %s\n", name);
+//printf("load: %s\n", name);
 	uint32_t size;
 	uint8_t *bytes = file_load(name, &size);
 	image_t *image = image_load_from_bytes(bytes, true);
@@ -290,7 +290,7 @@ texture_list_t image_get_compressed_textures(char *name) {
 		image_t *image = image_load_from_bytes(cmp->entries[i], false);
 
 		// char png_name[1024] = {0};
-		// sprintf(png_name, "%s.%d.png", name, i);
+//printf(png_name, "%s.%d.png", name, i);
 		// stbi_write_png(png_name, image->width, image->height, 4, image->pixels, 0);
 
 		render_texture_create(image->width, image->height, image->pixels);

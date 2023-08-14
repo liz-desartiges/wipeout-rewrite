@@ -76,15 +76,15 @@ void invert_shield_polys(Object *shield);
 
 void weapons_load() {
 	weapons = mem_bump(sizeof(weapon_t) * WEAPONS_MAX);
-	weapon_assets.reticle = image_get_texture("wipeout/textures/target2.tim");
+	weapon_assets.reticle = image_get_texture("ux0:data/wipeout/textures/target2.tim");
 
-	texture_list_t weapon_textures = image_get_compressed_textures("wipeout/common/mine.cmp");
-	weapon_assets.rocket = objects_load("wipeout/common/rock.prm", weapon_textures);
-	weapon_assets.mine = objects_load("wipeout/common/mine.prm", weapon_textures);
-	weapon_assets.missile = objects_load("wipeout/common/miss.prm", weapon_textures);
-	weapon_assets.shield = objects_load("wipeout/common/shld.prm", weapon_textures);
-	weapon_assets.shield_internal = objects_load("wipeout/common/shld.prm", weapon_textures);
-	weapon_assets.ebolt = objects_load("wipeout/common/ebolt.prm", weapon_textures);
+	texture_list_t weapon_textures = image_get_compressed_textures("ux0:data/wipeout/common/mine.cmp");
+	weapon_assets.rocket = objects_load("ux0:data/wipeout/common/rock.prm", weapon_textures);
+	weapon_assets.mine = objects_load("ux0:data/wipeout/common/mine.prm", weapon_textures);
+	weapon_assets.missile = objects_load("ux0:data/wipeout/common/miss.prm", weapon_textures);
+	weapon_assets.shield = objects_load("ux0:data/wipeout/common/shld.prm", weapon_textures);
+	weapon_assets.shield_internal = objects_load("ux0:data/wipeout/common/shld.prm", weapon_textures);
+	weapon_assets.ebolt = objects_load("ux0:data/wipeout/common/ebolt.prm", weapon_textures);
 
 	// Invert shield polys for internal view
 	Prm poly = {.primitive = weapon_assets.shield_internal->primitives};

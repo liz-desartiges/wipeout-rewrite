@@ -36,7 +36,7 @@ static void audio_mix(float *samples, uint32_t len);
 static void intro_end();
 
 void intro_init() {
-	plm = plm_create_with_filename("wipeout/intro.mpeg");
+	plm = plm_create_with_filename("ux0:data/wipeout/intro.mpeg");
 	if (!plm) {
 		intro_end();
 		return;

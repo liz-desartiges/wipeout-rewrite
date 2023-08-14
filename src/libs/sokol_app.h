@@ -924,7 +924,7 @@
     WINDOWS CONSOLE OUTPUT
     ======================
     On Windows, regular windowed applications don't show any stdout/stderr text
-    output, which can be a bit of a hassle for printf() debugging or generally
+//printf() debugging or generally
     logging text to the console. Also, console output by default uses a local
     codepage setting and thus international UTF-8 encoded text is printed
     as garbage.

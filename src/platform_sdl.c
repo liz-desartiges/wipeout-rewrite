@@ -1,4 +1,7 @@
 #include <SDL2/SDL.h>
+#ifdef __vita__
+    #include <vitaGL.h>
+#endif
 
 #include "platform.h"
 #include "input.h"
@@ -234,6 +237,26 @@ void platform_set_audio_mix_cb(void (*cb)(float *buffer, uint32_t len)) {
 	void platform_end_frame() {
 		SDL_GL_SwapWindow(window);
 	}
+#elif defined(RENDERER_VITAGL)
+	#define PLATFORM_WINDOW_FLAGS SDL_WINDOW_OPENGL
+	SDL_GLContext platform_gl;
+
+	void platform_video_init() {
+		platform_gl = SDL_GL_CreateContext(window);
+		SDL_GL_SetSwapInterval(1);
+	}
+
+	void platform_prepare_frame() {
+		// nothing
+	}
+
+	void platform_video_cleanup() {
+		SDL_GL_DeleteContext(platform_gl);
+	}
+
+	void platform_end_frame() {
+		SDL_GL_SwapWindow(window);
+	}
 #else
 	#error "Unsupported renderer for platform SDL"
 #endif
@@ -241,6 +264,14 @@ void platform_set_audio_mix_cb(void (*cb)(float *buffer, uint32_t len)) {
 
 
 int main(int argc, char *argv[]) {
+
+#ifdef __vita__
+	vglUseVram(GL_FALSE);
+	vglSetSemanticBindingMode(VGL_MODE_POSTPONED);
+	vglInitExtended(0, 960, 544, 16 * 1024 * 1024, SCE_GXM_MULTISAMPLE_4X);
+	SDL_setenv("VITA_USE_GLSL_TRANSLATOR", "1", 1);
+#endif
+
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER);
 
 	audio_device = SDL_OpenAudioDevice(NULL, 0, &(SDL_AudioSpec){

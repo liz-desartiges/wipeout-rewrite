@@ -37,14 +37,14 @@ const game_def_t def = {
 	},
 
 	.pilots = {
-		[PILOT_JOHN_DEKKA]           = {.name = "JOHN DEKKA",           .portrait = "wipeout/textures/dekka.cmp", .team = 0, .logo_model = 0},
-		[PILOT_DANIEL_CHANG]         = {.name = "DANIEL CHANG",         .portrait = "wipeout/textures/chang.cmp", .team = 0, .logo_model = 4},
-		[PILOT_ARIAL_TETSUO]         = {.name = "ARIAL TETSUO",         .portrait = "wipeout/textures/arial.cmp", .team = 1, .logo_model = 6},
-		[PILOT_ANASTASIA_CHEROVOSKI] = {.name = "ANASTASIA CHEROVOSKI", .portrait = "wipeout/textures/anast.cmp", .team = 1, .logo_model = 7},
-		[PILOT_KEL_SOLAAR]           = {.name = "KEL SOLAAR",           .portrait = "wipeout/textures/solar.cmp", .team = 2, .logo_model = 2},
-		[PILOT_ARIAN_TETSUO]         = {.name = "ARIAN TETSUO",         .portrait = "wipeout/textures/arian.cmp", .team = 2, .logo_model = 5},
-		[PILOT_SOFIA_DE_LA_RENTE]    = {.name = "SOFIA DE LA RENTE",    .portrait = "wipeout/textures/sophi.cmp", .team = 3, .logo_model = 1},
-		[PILOT_PAUL_JACKSON]         = {.name = "PAUL JACKSON",         .portrait = "wipeout/textures/paul.cmp",  .team = 3, .logo_model = 3},
+		[PILOT_JOHN_DEKKA]           = {.name = "JOHN DEKKA",           .portrait = "ux0:data/wipeout/textures/dekka.cmp", .team = 0, .logo_model = 0},
+		[PILOT_DANIEL_CHANG]         = {.name = "DANIEL CHANG",         .portrait = "ux0:data/wipeout/textures/chang.cmp", .team = 0, .logo_model = 4},
+		[PILOT_ARIAL_TETSUO]         = {.name = "ARIAL TETSUO",         .portrait = "ux0:data/wipeout/textures/arial.cmp", .team = 1, .logo_model = 6},
+		[PILOT_ANASTASIA_CHEROVOSKI] = {.name = "ANASTASIA CHEROVOSKI", .portrait = "ux0:data/wipeout/textures/anast.cmp", .team = 1, .logo_model = 7},
+		[PILOT_KEL_SOLAAR]           = {.name = "KEL SOLAAR",           .portrait = "ux0:data/wipeout/textures/solar.cmp", .team = 2, .logo_model = 2},
+		[PILOT_ARIAN_TETSUO]         = {.name = "ARIAN TETSUO",         .portrait = "ux0:data/wipeout/textures/arian.cmp", .team = 2, .logo_model = 5},
+		[PILOT_SOFIA_DE_LA_RENTE]    = {.name = "SOFIA DE LA RENTE",    .portrait = "ux0:data/wipeout/textures/sophi.cmp", .team = 3, .logo_model = 1},
+		[PILOT_PAUL_JACKSON]         = {.name = "PAUL JACKSON",         .portrait = "ux0:data/wipeout/textures/paul.cmp",  .team = 3, .logo_model = 3},
 	},
 
 	.ship_model_to_pilot = {6, 4, 7, 1, 5, 2, 3, 0},
@@ -122,71 +122,71 @@ const game_def_t def = {
 			.name = "ALTIMA VII",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track02/", .start_line_pos = 27, .behind_speed = 300, .spread_base = 80, .spread_factor = 20, .sky_y_offset = -2520},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track03/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 80, .spread_factor = 11, .sky_y_offset = -1930},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track02/", .start_line_pos = 27, .behind_speed = 300, .spread_base = 80, .spread_factor = 20, .sky_y_offset = -2520},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track03/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 80, .spread_factor = 11, .sky_y_offset = -1930},
 			}
 		},
 		[CIRCUT_KARBONIS_V] = {
 			.name = "KARBONIS V",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track04/", .start_line_pos = 16, .behind_speed = 200, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -5000},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track05/", .start_line_pos = 16, .behind_speed = 500, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -5000},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track04/", .start_line_pos = 16, .behind_speed = 200, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -5000},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track05/", .start_line_pos = 16, .behind_speed = 500, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -5000},
 			}
 		},
 		[CIRCUT_TERRAMAX] = {
 			.name = "TERRAMAX",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track01/", .start_line_pos = 27, .behind_speed = 350, .spread_base = 60, .spread_factor = 11, .sky_y_offset =  -820},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track06/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 10, .spread_factor =  8, .sky_y_offset =     0},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track01/", .start_line_pos = 27, .behind_speed = 350, .spread_base = 60, .spread_factor = 11, .sky_y_offset =  -820},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track06/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 10, .spread_factor =  8, .sky_y_offset =     0},
 			}
 		},
 		[CIRCUT_KORODERA] = {
 			.name = "KORODERA",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track12/", .start_line_pos = 16, .behind_speed = 450, .spread_base = 40, .spread_factor = 11, .sky_y_offset = -2120},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track07/", .start_line_pos = 16, .behind_speed = 500, .spread_base = 30, .spread_factor = 11, .sky_y_offset = -2260},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track12/", .start_line_pos = 16, .behind_speed = 450, .spread_base = 40, .spread_factor = 11, .sky_y_offset = -2120},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track07/", .start_line_pos = 16, .behind_speed = 500, .spread_base = 30, .spread_factor = 11, .sky_y_offset = -2260},
 			}
 		},
 		[CIRCUT_ARRIDOS_IV] = {
 			.name = "ARRIDOS IV",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track08/", .start_line_pos = 16, .behind_speed = 350, .spread_base = 80, .spread_factor = 15, .sky_y_offset =   -40},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track11/", .start_line_pos = 16, .behind_speed = 450, .spread_base = 30, .spread_factor = 11, .sky_y_offset =  -240},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track08/", .start_line_pos = 16, .behind_speed = 350, .spread_base = 80, .spread_factor = 15, .sky_y_offset =   -40},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track11/", .start_line_pos = 16, .behind_speed = 450, .spread_base = 30, .spread_factor = 11, .sky_y_offset =  -240},
 			}
 		},
 		[CIRCUT_SILVERSTREAM] = {
 			.name = "SILVERSTREAM",
 			.is_bonus_circut = false,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track09/", .start_line_pos = 16, .behind_speed = 150, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -2700},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track13/", .start_line_pos = 16, .behind_speed = 150, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -2700},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track09/", .start_line_pos = 16, .behind_speed = 150, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -2700},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track13/", .start_line_pos = 16, .behind_speed = 150, .spread_base = 10, .spread_factor =  8, .sky_y_offset = -2700},
 			}
 		},
 		[CIRCUT_FIRESTAR] = {
 			.name = "FIRESTAR",
 			.is_bonus_circut = true,
 			.settings = {
-				[RACE_CLASS_VENOM]  = {.path = "wipeout/track10/", .start_line_pos = 27, .behind_speed = 200, .spread_base = 40, .spread_factor = 11, .sky_y_offset =     0},
-				[RACE_CLASS_RAPIER] = {.path = "wipeout/track14/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 40, .spread_factor = 11, .sky_y_offset =     0},
+				[RACE_CLASS_VENOM]  = {.path = "ux0:data/wipeout/track10/", .start_line_pos = 27, .behind_speed = 200, .spread_base = 40, .spread_factor = 11, .sky_y_offset =     0},
+				[RACE_CLASS_RAPIER] = {.path = "ux0:data/wipeout/track14/", .start_line_pos = 27, .behind_speed = 500, .spread_base = 40, .spread_factor = 11, .sky_y_offset =     0},
 			}
 		},
 	},
 	.music = {
-		{.path = "wipeout/music/track01.qoa", .name = "CAIRODROME"},
-		{.path = "wipeout/music/track02.qoa", .name = "CARDINAL DANCER"},
-		{.path = "wipeout/music/track03.qoa", .name = "COLD COMFORT"},
-		{.path = "wipeout/music/track04.qoa", .name = "DOH T"},
-		{.path = "wipeout/music/track05.qoa", .name = "MESSIJ"},
-		{.path = "wipeout/music/track06.qoa", .name = "OPERATIQUE"},
-		{.path = "wipeout/music/track07.qoa", .name = "TENTATIVE"},
-		{.path = "wipeout/music/track08.qoa", .name = "TRANCEVAAL"},
-		{.path = "wipeout/music/track09.qoa", .name = "AFRO RIDE"},
-		{.path = "wipeout/music/track10.qoa", .name = "CHEMICAL BEATS"},
-		{.path = "wipeout/music/track11.qoa", .name = "WIPEOUT"},
+		{.path = "ux0:data/wipeout/music/track01.qoa", .name = "CAIRODROME"},
+		{.path = "ux0:data/wipeout/music/track02.qoa", .name = "CARDINAL DANCER"},
+		{.path = "ux0:data/wipeout/music/track03.qoa", .name = "COLD COMFORT"},
+		{.path = "ux0:data/wipeout/music/track04.qoa", .name = "DOH T"},
+		{.path = "ux0:data/wipeout/music/track05.qoa", .name = "MESSIJ"},
+		{.path = "ux0:data/wipeout/music/track06.qoa", .name = "OPERATIQUE"},
+		{.path = "ux0:data/wipeout/music/track07.qoa", .name = "TENTATIVE"},
+		{.path = "ux0:data/wipeout/music/track08.qoa", .name = "TRANCEVAAL"},
+		{.path = "ux0:data/wipeout/music/track09.qoa", .name = "AFRO RIDE"},
+		{.path = "ux0:data/wipeout/music/track10.qoa", .name = "CHEMICAL BEATS"},
+		{.path = "ux0:data/wipeout/music/track11.qoa", .name = "WIPEOUT"},
 	},
 	.credits = {
 		"#MANAGING DIRECTORS",
@@ -490,11 +490,11 @@ static int global_textures_len = 0;
 static void *global_mem_mark = 0;
 
 void game_init() {
-	if (file_exists("save.dat")) {
+	if (file_exists("ux0:data/wipeout/save.dat")) {
 		uint32_t size;
-		save_t *save_file = (save_t *)file_load("save.dat", &size);
+		save_t *save_file = (save_t *)file_load("ux0:data/wipeout/save.dat", &size);
 		if (size == sizeof(save_t) && save_file->magic == SAVE_DATA_MAGIC) {
-			printf("load save data success\n");
+//printf("load save data success\n");
 			memcpy(&save, save_file, sizeof(save_t));
 		}
 		mem_temp_free(save_file);
@@ -636,8 +636,8 @@ void game_update() {
 		// FIXME: use a text based format?
 		// FIXME: this should probably run async somewhere
 		save.is_dirty = false;
-		file_store("save.dat", &save, sizeof(save_t)); 
-		printf("wrote save.dat\n");
+		file_store("ux0:data/wipeout/save.dat", &save, sizeof(save_t)); 
+//printf("wrote ux0:data/wipeout/save.dat\n");
 	}
 
 	double now = platform_now();

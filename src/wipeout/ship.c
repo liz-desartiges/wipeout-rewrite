@@ -17,11 +17,11 @@
 #include "sfx.h"
 
 void ships_load() {
-	texture_list_t ship_textures = image_get_compressed_textures("wipeout/common/allsh.cmp");
-	Object *ship_models = objects_load("wipeout/common/allsh.prm", ship_textures);
+	texture_list_t ship_textures = image_get_compressed_textures("ux0:data/wipeout/common/allsh.cmp");
+	Object *ship_models = objects_load("ux0:data/wipeout/common/allsh.prm", ship_textures);
 
-	texture_list_t collision_textures = image_get_compressed_textures("wipeout/common/alcol.cmp");
-	Object *collision_models = objects_load("wipeout/common/alcol.prm", collision_textures);
+	texture_list_t collision_textures = image_get_compressed_textures("ux0:data/wipeout/common/alcol.cmp");
+	Object *collision_models = objects_load("ux0:data/wipeout/common/alcol.prm", collision_textures);
 
 	int object_index;
 	Object *ship_model = ship_models;
@@ -41,10 +41,10 @@ void ships_load() {
 	error_if(object_index != len(g.ships), "Expected %ld ship models, got %d", len(g.ships), object_index);
 
 	uint16_t shadow_textures_start = render_textures_len();
-	image_get_texture_semi_trans("wipeout/textures/shad1.tim");
-	image_get_texture_semi_trans("wipeout/textures/shad2.tim");
-	image_get_texture_semi_trans("wipeout/textures/shad3.tim");
-	image_get_texture_semi_trans("wipeout/textures/shad4.tim");
+	image_get_texture_semi_trans("ux0:data/wipeout/textures/shad1.tim");
+	image_get_texture_semi_trans("ux0:data/wipeout/textures/shad2.tim");
+	image_get_texture_semi_trans("ux0:data/wipeout/textures/shad3.tim");
+	image_get_texture_semi_trans("ux0:data/wipeout/textures/shad4.tim");
 
 	for (int i = 0; i < len(g.ships); i++) {
 		g.ships[i].shadow_texture = shadow_textures_start + (i >> 1);

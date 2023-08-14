@@ -67,7 +67,7 @@ void sfx_load() {
 
 	// 16 byte blocks: 2 byte header, 14 bytes with 2x4bit samples each
 	uint32_t vb_size;
-	uint8_t *vb = file_load("wipeout/sound/wipeout.vb", &vb_size);
+	uint8_t *vb = file_load("ux0:data/wipeout/sound/wipeout.vb", &vb_size);
 	uint32_t num_samples = (vb_size / 16) * 28;
 
 	int16_t *sample_buffer = mem_bump(num_samples * sizeof(int16_t));
@@ -291,7 +291,7 @@ void sfx_music_play(uint32_t index) {
 		return;
 	}
 
-	printf("open music track %d\n", index);
+//printf("open music track %d\n", index);
 
 	music->track_index = index;
 	sfx_music_open(def.music[index].path);

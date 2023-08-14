@@ -20,7 +20,7 @@ typedef enum {
 	NUM_RENDER_POST_EFFCTS,
 } render_post_effect_t;
 
-#define RENDER_USE_MIPMAPS 1
+#define RENDER_USE_MIPMAPS 0
 
 #define RENDER_FADEOUT_NEAR 48000.0
 #define RENDER_FADEOUT_FAR 64000.0

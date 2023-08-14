@@ -1,0 +1,98 @@
+TITLEID     := WIPEOUTPT
+TARGET		:= wipeout
+CC := arm-vita-eabi-gcc
+RENDERER ?= vitaGL
+DEBUG ?= false
+
+L_FLAGS ?= -lm #-rdynamic
+C_FLAGS ?= -std=gnu99 -Wall -Wno-unused-variable
+
+C_FLAGS  = -Wl,-q -ftree-vectorize
+ifeq ($(DEBUG), true)
+	C_FLAGS := $(C_FLAGS) -g -Og
+else
+	C_FLAGS := $(C_FLAGS) -O3
+endif
+
+
+ifeq ($(RENDERER), vitaGL)
+	RENDERER_SRC = src/render_vitagl.c
+	C_FLAGS := $(C_FLAGS) -DRENDERER_VITAGL
+else
+	$(error Unknown RENDERER)
+endif
+
+
+
+L_FLAGS_SDL := -lSDL2 -lSceTouch_stub -lSceHid_stub -lSceMotion_stub -lSceAudio_stub -lSceAudioIn_stub -lSceIme_stub
+L_FLAGS := $(L_FLAGS) -lvitaGL -lSceLibKernel_stub -lSceAppMgr_stub -lSceAppUtil_stub -lmathneon \
+	-lc -lSceCommonDialog_stub -lm -lSceGxm_stub -lSceDisplay_stub -lSceSysmodule_stub \
+	-lvitashark -lSceShaccCg_stub -lSceKernelDmacMgr_stub -lSceCtrl_stub \
+	-lSceShaccCgExt -ltaihen_stub
+
+TARGET_NATIVE ?= wipegame.elf
+BUILD_DIR = build/obj/vita
+
+COMMON_SRC = \
+	src/wipeout/race.c \
+	src/wipeout/camera.c \
+	src/wipeout/object.c \
+	src/wipeout/droid.c \
+	src/wipeout/ui.c \
+	src/wipeout/hud.c \
+	src/wipeout/image.c \
+	src/wipeout/game.c \
+	src/wipeout/menu.c \
+	src/wipeout/main_menu.c \
+	src/wipeout/ingame_menus.c \
+	src/wipeout/title.c \
+	src/wipeout/intro.c \
+	src/wipeout/scene.c \
+	src/wipeout/ship.c \
+	src/wipeout/ship_ai.c \
+	src/wipeout/ship_player.c \
+	src/wipeout/track.c \
+	src/wipeout/weapon.c \
+	src/wipeout/particle.c \
+	src/wipeout/sfx.c \
+	src/utils.c \
+	src/types.c \
+	src/system.c \
+	src/mem.c \
+	src/input.c \
+	$(RENDERER_SRC)
+
+
+# Targets native ---------------------------------------------------------------
+
+all: $(TARGET).vpk
+$(TARGET).vpk: eboot.bin
+	vita-mksfoex -s TITLE_ID=$(TITLEID) "$(TARGET)" param.sfo
+	vita-pack-vpk -s param.sfo -b eboot.bin $@
+
+eboot.bin: $(TARGET).velf
+	vita-make-fself -s $< eboot.bin	
+	
+%.velf: %.elf
+	vita-elf-create $< $@
+	
+COMMON_OBJ = $(patsubst %.c, $(BUILD_DIR)/%.o, $(COMMON_SRC))
+
+wipeout.elf: $(BUILD_DIR)/src/platform_sdl.o
+wipeout.elf: $(COMMON_OBJ)
+	$(CC) $(C_FLAGS) $^ -o wipeout.elf $(L_FLAGS_SDL) $(L_FLAGS)
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(C_FLAGS) -c $< -o $@
+
+
+ftp: eboot.bin
+	lftp 192.168.1.121 -p 1337 -e 'put eboot.bin -o ux0:/app/WIPEOUTPT/eboot.bin'
+
+.PHONY: clean
+clean:
+	$(RM) -rf $(BUILD_DIR) wipeout.velf wipeout.elf wipeout.vpk eboot.bin
